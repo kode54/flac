@@ -34,6 +34,12 @@
 #endif
 #define min(x,y) ((x)<(y)?(x):(y))
 
+#if _MSC_VER <= 1600
+#define fseeko _fseeki64
+#define ftello _ftelli64
+#define off_t FLAC__int64
+#endif
+
 
 static const char *FLAC__FOREIGN_METADATA_APPLICATION_ID[3] = { "aiff" , "riff", "w64 " };
 

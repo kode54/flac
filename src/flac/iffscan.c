@@ -26,10 +26,13 @@
 #include "share/compat.h"
 #include "foreign_metadata.h"
 
-#ifdef _MSC_VER
+#ifdef _MSC_VER <= 1600
 #define PRIu64 "I64u"
 #define PRIx64 "I64x"
+#define fseeko _fseeki64
+#define ftello _ftelli64
 #endif
+
 
 static FLAC__uint32 unpack32be_(const FLAC__byte *b)
 {

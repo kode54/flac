@@ -32,6 +32,12 @@
 #include "share/compat.h"
 #include "encode.h"
 
+#if _MSC_VER <= 1600
+#define fseeko _fseeki64
+#define ftello _ftelli64
+#define off_t FLAC__int64
+#endif
+
 #ifdef min
 #undef min
 #endif
@@ -214,7 +220,8 @@ static FLAC__bool get_sample_info_wave(EncoderSession *e, encode_options_t optio
 			break;
 
 		if(e->format == FORMAT_RF64 && !memcmp(chunk_id, "ds64", 4)) { /* RF64 64-bit sizes chunk */
-			FLAC__uint32 xx, data_bytes;
+			FLAC__uint32 xx;
+			FLAC__uint64 data_bytes;
 
 			if(got_ds64_chunk) {
 				flac__utils_printf(stderr, 1, "%s: ERROR: file has multiple 'ds64' chunks\n", e->inbasefilename);
@@ -261,7 +268,8 @@ static FLAC__bool get_sample_info_wave(EncoderSession *e, encode_options_t optio
 			(e->format!=FORMAT_WAVE64 || !memcmp(chunk_id, "fmt \xF3\xAC\xD3\x11\xD1\x8C\x00\xC0\x4F\x8E\xDB\x8A", 16))
 		) { /* format chunk */
 			FLAC__uint16 x;
-			FLAC__uint32 xx, data_bytes;
+			FLAC__uint32 xx;
+			FLAC__uint64 data_bytes;
 			FLAC__uint16 wFormatTag; /* wFormatTag word from the 'fmt ' chunk */
 
 			if(got_fmt_chunk) {

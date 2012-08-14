@@ -60,6 +60,11 @@
 #include "private/stream_encoder_framing.h"
 #include "private/window.h"
 
+#if _MSC_VER <= 1600
+#define fseeko _fseeki64
+#define ftello _ftelli64
+#define off_t FLAC__int64
+#endif
 
 /* Exact Rice codeword length calculation is off by default.  The simple
  * (and fast) estimation (of how many bits a residual value will be

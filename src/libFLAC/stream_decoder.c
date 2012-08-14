@@ -53,6 +53,11 @@
 #include "private/memory.h"
 #include "private/macros.h"
 
+#if _MSC_VER <= 1600
+#define fseeko _fseeki64
+#define ftello _ftelli64
+#define off_t FLAC__int64
+#endif
 
 /* technically this should be in an "export.c" but this is convenient enough */
 FLAC_API int FLAC_API_SUPPORTS_OGG_FLAC = FLAC__HAS_OGG ;

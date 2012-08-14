@@ -44,6 +44,11 @@
 #include "utils.h"
 #include "vorbiscomment.h"
 
+#if _MSC_VER <= 1600
+#define off_t FLAC__int64
+#endif
+
+
 #if defined _MSC_VER || defined __MINGW32__
 #define FLAC__STRCASECMP stricmp
 #else

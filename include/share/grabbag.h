@@ -19,6 +19,14 @@
 #ifndef SHARE__GRABBAG_H
 #define SHARE__GRABBAG_H
 
+#if _MSC_VER <= 1600
+#include <sys/types.h>
+#include <stdint.h>
+#define fseeko _fseeki64
+#define ftello _ftelli64
+#define off_t FLAC__int64
+#endif
+
 /* These can't be included by themselves, only from within grabbag.h */
 #include "grabbag/cuesheet.h"
 #include "grabbag/file.h"
