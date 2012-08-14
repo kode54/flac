@@ -63,3 +63,15 @@ test/metaflac-test-files/out.meta
 test/metaflac.flac
 test/picture.diff
 test/picture.log
+Debug
+Release
+Release_dynamic
+Release_static
+obj/debug
+obj/release
+*.obj
+*.opensdf
+*.sdf
+*.suo
+*.user
+ipch
