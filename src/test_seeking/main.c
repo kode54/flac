@@ -35,6 +35,10 @@
 #include "FLAC/stream_decoder.h"
 #include "share/compat.h"
 
+#ifdef _MSC_VER
+#define PRIu64 "I64u"
+#endif
+
 typedef struct {
 	FLAC__int32 **pcm;
 	FLAC__bool got_data;

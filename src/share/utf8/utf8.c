@@ -34,6 +34,11 @@
 #include "utf8.h"
 #include "charset.h"
 
+#ifdef _MSC_VER
+/* Alias the first (in share/alloc.h) to the second (in src/libFLAC/memory.c). */
+#define safe_malloc_mul_2op_ safe_malloc_mul_2op_p
+#endif
+
 
 #ifdef _WIN32
 

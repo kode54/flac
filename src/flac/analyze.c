@@ -25,7 +25,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef _MSC_VER
+#include <stdint.h>
+#define PRIu64 "I64u"
+#else
 #include <inttypes.h>
+#endif
 #include "FLAC/all.h"
 #include "analyze.h"
 

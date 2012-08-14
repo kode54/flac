@@ -105,6 +105,9 @@
     <ClInclude Include="..\..\include\FLAC++\metadata.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\libogg\win32\VS2010\libogg_static.vcxproj">
+      <Project>{15cbfeff-7965-41f5-b4e2-21e8795c9159}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\libFLAC\libFLAC_dynamic.vcxproj">
       <Project>{4cefbc83-c215-11db-8314-0800200c9a66}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

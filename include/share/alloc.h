@@ -57,6 +57,10 @@
 # define SIZE_MAX SIZE_T_MAX
 #endif
 
+#ifdef _MSC_VER
+#define inline __inline
+#endif
+
 /* avoid malloc()ing 0 bytes, see:
  * https://www.securecoding.cert.org/confluence/display/seccode/MEM04-A.+Do+not+make+assumptions+about+the+result+of+allocating+0+bytes?focusedCommentId=5407003
 */

@@ -31,6 +31,10 @@
 #include <stdlib.h> /* for malloc() */
 #include <string.h> /* for memcmp() */
 
+#ifdef _MSC_VER
+#define PRIu64 "I64u"
+#endif
+
 FLAC__bool mutils__compare_block_data_streaminfo(const FLAC__StreamMetadata_StreamInfo *block, const FLAC__StreamMetadata_StreamInfo *blockcopy)
 {
 	if(blockcopy->min_blocksize != block->min_blocksize) {

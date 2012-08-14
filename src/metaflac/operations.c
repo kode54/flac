@@ -33,6 +33,13 @@
 #include <string.h>
 #include "operations_shorthand.h"
 
+#ifdef _MSC_VER
+#define PRIu64 "I64u"
+
+/* Alias the first (in share/alloc.h) to the second (in src/libFLAC/memory.c). */
+#define safe_malloc_mul_2op_ safe_malloc_mul_2op_p
+#endif
+
 static void show_version(void);
 static FLAC__bool do_major_operation(const CommandLineOptions *options);
 static FLAC__bool do_major_operation_on_file(const char *filename, const CommandLineOptions *options);

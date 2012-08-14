@@ -64,6 +64,8 @@ test/metaflac.flac
 test/picture.diff
 test/picture.log
 Debug
+Debug_dynamic
+Debug_static
 Release
 Release_dynamic
 Release_static

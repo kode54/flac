@@ -33,6 +33,10 @@
 #include "share/compat.h"
 #include "FLAC/stream_decoder.h"
 
+#ifdef _MSC_VER
+#define PRIu64 "I64u"
+#endif
+
 static FLAC__StreamDecoderWriteStatus write_callback(const FLAC__StreamDecoder *decoder, const FLAC__Frame *frame, const FLAC__int32 * const buffer[], void *client_data);
 static void metadata_callback(const FLAC__StreamDecoder *decoder, const FLAC__StreamMetadata *metadata, void *client_data);
 static void error_callback(const FLAC__StreamDecoder *decoder, FLAC__StreamDecoderErrorStatus status, void *client_data);

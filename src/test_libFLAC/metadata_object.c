@@ -29,6 +29,10 @@
 #include <stdlib.h> /* for malloc() */
 #include <string.h> /* for memcmp() */
 
+#ifdef _MSC_VER
+#define PRIu64 "I64u"
+#endif
+
 static FLAC__byte *make_dummydata_(FLAC__byte *dummydata, unsigned len)
 {
 	FLAC__byte *ret;

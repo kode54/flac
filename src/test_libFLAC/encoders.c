@@ -32,6 +32,10 @@
 #include "test_libs_common/file_utils_flac.h"
 #include "test_libs_common/metadata_utils.h"
 
+#ifdef _MSC_VER
+#define PRIu64 "I64u"
+#endif
+
 typedef enum {
 	LAYER_STREAM = 0, /* FLAC__stream_encoder_init_[ogg_]stream() without seeking */
 	LAYER_SEEKABLE_STREAM, /* FLAC__stream_encoder_init_[ogg_]stream() with seeking */

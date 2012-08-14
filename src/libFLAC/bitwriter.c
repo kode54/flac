@@ -260,7 +260,10 @@ void FLAC__bitwriter_release_buffer(FLAC__BitWriter *bw)
 	(void)bw;
 }
 
-inline FLAC__bool FLAC__bitwriter_write_zeroes(FLAC__BitWriter *bw, unsigned bits)
+#ifndef _MSC_VER
+inline
+#endif
+FLAC__bool FLAC__bitwriter_write_zeroes(FLAC__BitWriter *bw, unsigned bits)
 {
 	unsigned n;
 
@@ -298,7 +301,10 @@ inline FLAC__bool FLAC__bitwriter_write_zeroes(FLAC__BitWriter *bw, unsigned bit
 	return true;
 }
 
-inline FLAC__bool FLAC__bitwriter_write_raw_uint32(FLAC__BitWriter *bw, FLAC__uint32 val, unsigned bits)
+#ifndef _MSC_VER
+inline
+#endif
+FLAC__bool FLAC__bitwriter_write_raw_uint32(FLAC__BitWriter *bw, FLAC__uint32 val, unsigned bits)
 {
 	register unsigned left;
 
@@ -337,7 +343,10 @@ inline FLAC__bool FLAC__bitwriter_write_raw_uint32(FLAC__BitWriter *bw, FLAC__ui
 	return true;
 }
 
-inline FLAC__bool FLAC__bitwriter_write_raw_int32(FLAC__BitWriter *bw, FLAC__int32 val, unsigned bits)
+#ifndef _MSC_VER
+inline
+#endif
+FLAC__bool FLAC__bitwriter_write_raw_int32(FLAC__BitWriter *bw, FLAC__int32 val, unsigned bits)
 {
 	/* zero-out unused bits */
 	if(bits < 32)
@@ -346,7 +355,10 @@ inline FLAC__bool FLAC__bitwriter_write_raw_int32(FLAC__BitWriter *bw, FLAC__int
 	return FLAC__bitwriter_write_raw_uint32(bw, (FLAC__uint32)val, bits);
 }
 
-inline FLAC__bool FLAC__bitwriter_write_raw_uint64(FLAC__BitWriter *bw, FLAC__uint64 val, unsigned bits)
+#ifndef _MSC_VER
+inline
+#endif
+FLAC__bool FLAC__bitwriter_write_raw_uint64(FLAC__BitWriter *bw, FLAC__uint64 val, unsigned bits)
 {
 	/* this could be a little faster but it's not used for much */
 	if(bits > 32) {
@@ -358,7 +370,10 @@ inline FLAC__bool FLAC__bitwriter_write_raw_uint64(FLAC__BitWriter *bw, FLAC__ui
 		return FLAC__bitwriter_write_raw_uint32(bw, (FLAC__uint32)val, bits);
 }
 
-inline FLAC__bool FLAC__bitwriter_write_raw_uint32_little_endian(FLAC__BitWriter *bw, FLAC__uint32 val)
+#ifndef _MSC_VER
+inline
+#endif
+FLAC__bool FLAC__bitwriter_write_raw_uint32_little_endian(FLAC__BitWriter *bw, FLAC__uint32 val)
 {
 	/* this doesn't need to be that fast as currently it is only used for vorbis comments */
 
@@ -374,7 +389,10 @@ inline FLAC__bool FLAC__bitwriter_write_raw_uint32_little_endian(FLAC__BitWriter
 	return true;
 }
 
-inline FLAC__bool FLAC__bitwriter_write_byte_block(FLAC__BitWriter *bw, const FLAC__byte vals[], unsigned nvals)
+#ifndef _MSC_VER
+inline
+#endif
+FLAC__bool FLAC__bitwriter_write_byte_block(FLAC__BitWriter *bw, const FLAC__byte vals[], unsigned nvals)
 {
 	unsigned i;
 

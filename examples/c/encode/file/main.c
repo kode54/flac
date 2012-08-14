@@ -35,6 +35,10 @@
 #include "FLAC/metadata.h"
 #include "FLAC/stream_encoder.h"
 
+#ifdef _MSC_VER
+#define PRIu64 "I64u"
+#endif
+
 static void progress_callback(const FLAC__StreamEncoder *encoder, FLAC__uint64 bytes_written, FLAC__uint64 samples_written, unsigned frames_written, unsigned total_frames_estimate, void *client_data);
 
 #define READSIZE 1024

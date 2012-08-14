@@ -34,7 +34,11 @@
 #endif
 
 #include <math.h>
+#ifdef _MSC_VER
+#include <stdint.h>
+#else
 #include <inttypes.h>
+#endif
 #include "FLAC/assert.h"
 #include "FLAC/format.h"
 #include "private/bitmath.h"
@@ -42,6 +46,10 @@
 #include "private/macros.h"
 #if defined DEBUG || defined FLAC__OVERFLOW_DETECT || defined FLAC__OVERFLOW_DETECT_VERBOSE
 #include <stdio.h>
+#endif
+
+#ifdef _MSC_VER
+#define PRId64 "I64d"
 #endif
 
 /* OPT: #undef'ing this may improve the speed on some architectures */

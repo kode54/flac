@@ -32,6 +32,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef _MSC_VER
+/* Alias the first (in share/alloc.h) to the second (in src/libFLAC/memory.c). */
+#define safe_malloc_mul_2op_ safe_malloc_mul_2op_p
+#endif
+
 /*
    share__getopt format struct; note we don't use short options so we just
    set the 'val' field to 0 everywhere to indicate a valid option.

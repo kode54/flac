@@ -28,6 +28,10 @@
 #include <string.h>
 #include "operations_shorthand.h"
 
+#ifdef _MSC_VER
+#define PRIu64 "I64u"
+#endif
+
 FLAC__bool do_shorthand_operation__streaminfo(const char *filename, FLAC__bool prefix_with_filename, FLAC__Metadata_Chain *chain, const Operation *operation, FLAC__bool *needs_write)
 {
 	unsigned i;

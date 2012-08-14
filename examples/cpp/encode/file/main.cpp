@@ -33,7 +33,12 @@
 #include <string.h>
 
 #define __STDC_FORMAT_MACROS
+#ifdef _MSC_VER
+#include <stdint.h>
+#define PRIu64 "I64u"
+#else
 #include <inttypes.h>
+#endif
 
 #include "FLAC++/metadata.h"
 #include "FLAC++/encoder.h"
